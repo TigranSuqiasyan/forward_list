@@ -404,23 +404,23 @@ void my::forward_list<T>::remove(const T& value){
     }
 }
 
-template <typename T>
-void my::forward_list<T>::remove_if(bool (*op)(const T&)){
-    Node* curr = _head;
-    while(op(_head->value)){
-        this->pop_front();
-    }
-    while(curr->next){
-        if(op(curr->next->value)){
-            Node* tmp = curr->next;
-            curr->next = curr->next->next;
-            delete tmp;
-        }
-        else{
-            curr = curr->next;
-        }
-    }
-}
+// template <typename T>
+// void my::forward_list<T>::remove_if(bool (*op)(const T&)){
+//     Node* curr = _head;
+//     while(op(_head->value)){
+//         this->pop_front();
+//     }
+//     while(curr->next){
+//         if(op(curr->next->value)){
+//             Node* tmp = curr->next;
+//             curr->next = curr->next->next;
+//             delete tmp;
+//         }
+//         else{
+//             curr = curr->next;
+//         }
+//     }
+// }
 
 template <typename T>
 void my::forward_list<T>::reverse(){
@@ -562,8 +562,15 @@ void my::forward_list<T>::splice_after
 }
 
 int main(){
+
+    // SOME EXAMPLES
+
     my::forward_list<int> f1{1,3,5,9,14,23};
     my::forward_list<int> f2{7,8,9};
+    f1.pop_front();
+    f2 = f1;
+    f2.push_front(10);
     f1.remove(5);
+    f1.sort();
     f1.print();
 }

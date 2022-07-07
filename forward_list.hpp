@@ -10,65 +10,65 @@ namespace my
     class forward_list{
         struct Node;
     public:
-        forward_list();                           // done
-        forward_list(std::size_t);                // done
-        forward_list(std::size_t, const T&);      // done
-        forward_list(const forward_list<T>&);     // done 
-        forward_list(forward_list&&);             // done
-        forward_list(std::initializer_list<T>);   // done
-        ~forward_list();                          // done
+        forward_list();                           
+        forward_list(std::size_t);                
+        forward_list(std::size_t, const T&);      
+        forward_list(const forward_list<T>&);      
+        forward_list(forward_list&&);             
+        forward_list(std::initializer_list<T>);   
+        ~forward_list();                          
 
     private:
-        void free(Node*);                         // done
+        void free(Node*);                         
 
     public:
-        forward_list& operator=(const forward_list<T>&);    // done
-        forward_list& operator=(forward_list<T>&&);         // done
-        forward_list& operator=(std::initializer_list<T>);  // done
-        forward_list& assign(std::size_t, const T&);        // done
-        forward_list& assign(std::initializer_list<T>);     // done
-        void swap(forward_list<T>&);                        // done
+        forward_list& operator=(const forward_list<T>&);    
+        forward_list& operator=(forward_list<T>&&);         
+        forward_list& operator=(std::initializer_list<T>);  
+        forward_list& assign(std::size_t, const T&);        
+        forward_list& assign(std::initializer_list<T>);     
+        void swap(forward_list<T>&);                  
 
     public:
-        bool operator==(const forward_list<T>&) const;      // done
-        bool operator!=(const forward_list<T>&) const;      // done
-        bool operator<(const forward_list<T>&) const;       // done
-        bool operator>(const forward_list<T>&) const;       // done
-        bool operator<=(const forward_list<T>&) const;      // done
-        bool operator>=(const forward_list<T>&) const;      // done
-        bool empty() const;                                 // done
-        std::size_t max_size() const;                       // done
-        void print() const;                                 // done
+        bool operator==(const forward_list<T>&) const;     
+        bool operator!=(const forward_list<T>&) const;  
+        bool operator<(const forward_list<T>&) const;   
+        bool operator>(const forward_list<T>&) const;    
+        bool operator<=(const forward_list<T>&) const;    
+        bool operator>=(const forward_list<T>&) const;     
+        bool empty() const;                                 
+        std::size_t max_size() const;                   
+        void print() const;                                
 
     public:
-        void clear();                                                  // done
-        void insert_after(const std::size_t, const T&);                // done
-        void insert_after(const std::size_t, std::initializer_list<T>);// done
-        void erase_after(const std::size_t);                           // done
-        void push_front(const T&);                                     // done
-        void pop_front();                                              // done
-        void resize(std::size_t);                                      // done
-        void resize(std::size_t, const T&);                            // done
-        void remove(const T&);                                         // done
-        void reverse();
-        void unique();                                                 // done
-        void sort(); 
-        void remove_if(bool (*)(const T&));                            // -
-        T& front();                                                    // done
-        void merge(forward_list<T>&);                                  // -
-        void splice_after(const std::size_t, forward_list<T>&);        // -
+        void clear();                                                
+        void insert_after(const std::size_t, const T&);               
+        void insert_after(const std::size_t, std::initializer_list<T>);
+        void erase_after(const std::size_t);                          
+        void push_front(const T&);                               
+        void pop_front();                                 
+        void resize(std::size_t);                                      
+        void resize(std::size_t, const T&);                    
+        void remove(const T&);                                
+        void reverse();                                          
+        void unique();                                 
+        void sort();                                                 
+        //void remove_if(bool (*)(const T&));                     
+        T& front();                                                 
+        void merge(forward_list<T>&);                               
+        void splice_after(const std::size_t, forward_list<T>&);    
 
     private:
         Node* _head;
 
     private:
         struct Node{
-            Node();                // +
-            Node(const T&);        // + 
-            Node(Node*);           // +
-            Node(T, Node*);        // + 
-            Node(const Node&);     // +
-            Node(Node&&);          // +
+            Node();              
+            Node(const T&);     
+            Node(Node*);         
+            Node(T, Node*);   
+            Node(const Node&);  
+            Node(Node&&);     
             T value;
             Node* next;
         };
